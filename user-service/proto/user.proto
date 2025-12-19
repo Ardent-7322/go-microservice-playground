@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/Ardent-7322/go-microservices-playground/user-service/proto;userpb";
+service UserService {
+  // Used by Order Service
+  rpc GetUserForOrder(GetUserForOrderRequest)
+      returns (GetUserForOrderResponse);
+}
+
+message GetUserForOrderRequest {
+  uint64 user_id = 1;
+}
+
+message GetUserForOrderResponse {
+  uint64 user_id = 1;
+  string email = 2;
+  bool is_active = 3;
+}
